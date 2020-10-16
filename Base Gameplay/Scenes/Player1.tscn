@@ -1,0 +1,72 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Scripts/Player1.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Player1AnimationsSplit/tile017.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Player1AnimationsSplit/tile018.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Player1AnimationsSplit/tile019.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Player1AnimationsSplit/tile020.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Player1AnimationsSplit/tile051.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Player1AnimationsSplit/tile052.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Player1AnimationsSplit/tile053.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Player1AnimationsSplit/tile054.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Player1AnimationsSplit/tile034.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Player1AnimationsSplit/tile035.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Player1AnimationsSplit/tile036.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Player1AnimationsSplit/tile037.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Player1AnimationsSplit/tile000.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Player1AnimationsSplit/tile001.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Player1AnimationsSplit/tile002.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Player1AnimationsSplit/tile003.png" type="Texture" id=17]
+[ext_resource path="res://Scenes/PlayerHealth.tscn" type="PackedScene" id=18]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 5.06827
+height = 8.16094
+
+[node name="Player1" type="KinematicBody2D"]
+collision_mask = 62
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "right"
+frame = 1
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2( 0.225922, 1.80748 )
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.4, 0.4 )
+
+[node name="PlayerHealth" parent="." groups=[
+"Save",
+] instance=ExtResource( 18 )]
+margin_left = -16.1101
+margin_top = -14.9475
+margin_right = -16.1101
+margin_bottom = -14.9475

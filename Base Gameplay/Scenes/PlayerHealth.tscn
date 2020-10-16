@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/PlayerHealth.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/HealthUnder.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/HealthOver.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/HealthTexture.png" type="Texture" id=4]
+
+[node name="PlayerHealth" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="HealthBar" type="TextureProgress" parent="."]
+margin_left = -0.178616
+margin_top = -0.238154
+margin_right = 39.8214
+margin_bottom = 39.7618
+value = 100.0
+texture_under = ExtResource( 2 )
+texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
+tint_over = Color( 0.0313726, 1, 0, 1 )
+tint_progress = Color( 1, 0.0117647, 0.0117647, 1 )
